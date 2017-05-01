@@ -61,6 +61,12 @@ class SlideAdmin extends AbstractAdmin
         ;
     }
 
+    public function preUpdate($object)
+    {
+        $this->manageFileUpload($object);
+
+    }
+
     public function prePersist($slide)
     {
         $this->manageFileUpload($slide);
