@@ -1,0 +1,7 @@
+<td>
+    {% if object.image == "" %}
+        <img src="{{ asset('/images/logo.png') }}" alt="New World telecom Slide {{ object.id }}" width="80px" class="img circle profile_img"/>
+    {% else %}
+        <img src="{{ asset('images/slide/'~object.image) }}" alt="New World telecom Slide {{ object.id }}" width="80px" class="img-t"/>
+    {% endif %}
+</td>

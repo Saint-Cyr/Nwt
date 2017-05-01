@@ -1,0 +1,7 @@
+<td>
+    {% if object.idDocument == "" %}
+        <img src="{{ asset('/images/logo.png') }}" alt="New World telecom - {{ object.name }}" width="80px" class="img circle profile_img"/>
+    {% else %}
+        <a href="{{ asset('/uploads/'~object.idDocument) }}" download><i class="glyphicon glyphicon-download"> Download</i></a>
+    {% endif %}
+</td>

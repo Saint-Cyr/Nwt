@@ -1,0 +1,33 @@
+services:
+#    nwt.example:
+#        class: NwtBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    nwt.admin.product:
+        class: NwtBundle\Admin\ProductAdmin
+        arguments: [~, NwtBundle\Entity\Product, NwtBundle:ProductAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Product }
+
+    nwt.admin.slide:
+        class: NwtBundle\Admin\SlideAdmin
+        arguments: [~, NwtBundle\Entity\Slide, NwtBundle:SlideAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Slide }
+
+    nwt.admin.student:
+        class: NwtBundle\Admin\StudentAdmin
+        arguments: [~, NwtBundle\Entity\Student, NwtBundle:StudentAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Student }
+
+    nwt.admin.program:
+        class: NwtBundle\Admin\ProgramAdmin
+        arguments: [~, NwtBundle\Entity\Program, NwtBundle:ProgramAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Program }
+
+    nwt.admin.post:
+        class: NwtBundle\Admin\PostAdmin
+        arguments: [~, NwtBundle\Entity\Post, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Post }

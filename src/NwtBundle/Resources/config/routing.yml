@@ -1,0 +1,59 @@
+nwt_homepage:
+    path:     /{_locale}
+    defaults: { _controller: NwtBundle:Default:index }
+    requirements:
+            _locale: en|fr
+
+nwt_registration:
+    path:   /{_locale}/registration
+    defaults: { _controller: NwtBundle:Default:registration }
+    requirements:
+            _locale: en|fr
+
+nwt_order:
+    path:   /{_locale}/order-product-service
+    defaults: { _controller: NwtBundle:Default:order }
+    requirements:
+        _locale: en|fr
+
+nwt_services:
+    path:   /{_locale}/services
+    defaults: { _controller: NwtBundle:Default:services }
+    requirements:
+            _locale: en|fr
+
+nwt_it_programs:
+    path:   /{_locale}/information-technolgy-programs
+    defaults: { _controller: NwtBundle:Default:itPrograms }
+    requirements:
+            _locale: en|fr
+
+nwt_other_programs:
+    path:   /{_locale}/other-programs
+    defaults: { _controller: NwtBundle:Default:otherPrograms }
+    requirements:
+            _locale: en|fr
+
+nwt_faq:
+    path:   /{_locale}/frequent-asked-questions
+    defaults: { _controller: NwtBundle:Default:faq }
+    requirements:
+            _locale: en|fr
+
+nwt_contact:
+    path:   /{_locale}/contact
+    defaults: { _controller: NwtBundle:Default:contact }
+    requirements:
+            _locale: en|fr
+
+nwt_search:
+    path:   /{_locale}/product-search
+    defaults: { _controller: NwtBundle:Default:search }
+    requirements:
+            _locale: en|fr
+
+nwt_product:
+    path:  /{_locale}/{productSlug}
+    defaults: { _controller: NwtBundle:Default:product }
+    requirements:
+            _locale: en|fr

@@ -1,0 +1,81 @@
+{
+    "name": "saint-cyr/nwt10",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "autoload-dev": {
+        "files": [
+            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.3.9",
+        "doctrine/doctrine-bundle": "~1.4",
+        "doctrine/orm": "^2.4.8",
+        "egeloen/ckeditor-bundle": "^5.0",
+        "excelwebzone/search-bundle": "^1.0",
+        "excelwebzone/zend-search": "^1.0",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "friendsofsymfony/user-bundle": "^2.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "jbouzekri/file-uploader-bundle": "v3.3",
+        "nelmio/api-doc-bundle": "^2.13",
+        "orbitale/cms-bundle": "^2.0",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "sonata-project/admin-bundle": "^3.16",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+        "sonata-project/page-bundle": "^3.4",
+        "sonata-project/seo-bundle": "^2.1",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/monolog-bundle": "^3.0.2",
+        "symfony/phpunit-bridge": "^3.2",
+        "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
+        "symfony/symfony": "2.8.*",
+        "twig/twig": "^1.0||^2.0"
+    },
+    "require-dev": {
+        "doctrine/data-fixtures": "^1.2",
+        "hautelook/alice-bundle": "^2.0@beta",
+        "nelmio/alice": "^3.0@beta",
+        "sensio/generator-bundle": "~3.0",
+        "theofidry/alice-data-fixtures": "^1.0@beta"
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": null
+    }
+}

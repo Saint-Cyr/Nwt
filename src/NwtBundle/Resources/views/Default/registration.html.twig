@@ -1,0 +1,109 @@
+{% extends '::layout.html.twig' %}
+
+
+
+
+{% block content %}
+    <body>
+
+    {% include 'NwtBundle:Default:menu.html.twig' %}
+
+    <div class="container" style="margin-top:30px">
+
+            {% for flash_message in app.session.flashBag.get('success') %}
+                <div class="col-md-10 col-md-offset-1 alert alert-success">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3 class="panel-title  center-block"><strong>{{ 'Register for a training program'|trans }} </strong></h3>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="{{ path('nwt_homepage') }}">{{ 'Home page'|trans }}</a></div>
+                    </div>
+
+                    <div class="panel-body">
+
+
+
+                        {{ form_start(form) }}
+                        {% if form_errors(form.idDocument) or form_errors(form.resume) or form_errors(form.diploma) %}
+                            <div class="alert alert-danger">
+                                <a class="close" data-dismiss="alert" href="#"></a> Error. Please fill the form correctly.
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.name) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.schoolLevel) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.programs) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.phone) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.email) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    {{ form_widget(form.address) }}
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="glyphicon glyphicon-send"></i> {{ 'Send'|trans }}
+                        </button>
+                        <hr style="margin-top:10px;margin-bottom:10px;" >
+
+                        <div class="form-group">
+
+                            <div style="font-size:85%">
+
+                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+
+                                </a>
+                            </div>
+
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2017 | {{ 'Powered by'|trans }} <a target="_blank" href="http://facebook.com/saintcyr.mapouka"> Saint-Cyr MAPOUKA</a> (mapoukacyr@yahoo.fr)</p>
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    </body>
+{% endblock %}

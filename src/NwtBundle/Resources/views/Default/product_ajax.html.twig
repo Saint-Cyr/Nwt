@@ -1,0 +1,35 @@
+{% for product in products %}
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            {% if product.image == "" %}
+                <img class="img-responsive portfolio-item" src="http://placehold.it/907x425" alt="New World telecom - {{ product.name }}">
+            {% else %}
+                <img src="{{ asset('images/product/'~product.image) }}" alt="">
+            {% endif %}
+            <div class="caption">
+                <h4 class="pull-right">{{ product.unitPrice }} FCFA</h4>
+
+                {% if product.name|length >= 15 %}
+                    <h4><a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">{{ product.name|slice(0, 15) }}...</a></h4>
+
+                {% else %}
+                    <h4><a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">{{ product.name}}</a></h4>
+                {% endif %}
+
+                {% if product.description|length >= 125 %}
+                    <p>{{ product.description|slice(0, 120)|raw }}...
+                        <a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">
+                            More
+                        </a>
+                    </p>
+
+                {% else %}
+                    <p>{{ product.description|raw }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <p> </p>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,159 @@
+{% extends '::layout.html.twig' %}
+{% block content %}
+
+    <body>
+
+
+    {% include 'NwtBundle:Default:menu.html.twig' %}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            {% include 'NwtBundle:Default:aside.html.twig' %}
+
+            <div class="col-md-9">
+
+
+                <div class="container">
+
+
+
+                    <div>
+
+                        <ul class="nav navbar-nav navbar-left">
+
+                        </ul>
+
+                        <div class="navbar-form navbar-right btn-group">
+
+                        </div>
+
+                        <form class="center-block" action="{{ path('nwt_search') }}" method="get">
+                            <div class="input-group  col-lg-8">
+                                <input type="text" class="form-control input-xlarge" name="query" value="{{ app.request.query.get('query') }}"
+                                       placeholder="Search by product's name, price, description...Eg: Graphical Card, USB Pen Drive...">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                            </div>
+                        </form>
+                        <br>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                {% if product.image == "" %}
+                                    <img class="img-responsive portfolio-item" src="http://placehold.it/907x425" alt="New World telecom - {{ product.name }}">
+                                {% else %}
+                                    <img src="{{ asset('images/product/'~product.image) }}" alt="">
+                                {% endif %}
+                                <div class="caption">
+
+                                    {% if product.unitPrice|length >= 5 %}
+                                        <h4 class="pull-right">{{ product.unitPrice|slice(0, 3) }}...FCFA</h4>
+                                    {% else %}
+                                        <h4 class="pull-right">{{ product.unitPrice }} FCFA</h4>
+                                    {% endif %}
+
+                                    {% if product.name|length >= 15 %}
+                                        <h4><a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">{{ product.name|slice(0, 15) }}...</a></h4>
+
+                                    {% else %}
+                                        <h4><a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">{{ product.name}}</a></h4>
+                                    {% endif %}
+
+                                    {% if product.description|length >= 125 %}
+                                        <p>{{ product.description|slice(0, 120)|raw }}...
+                                            <a href="{{ path('nwt_product', {'productSlug': product.slug}) }}">
+                                                More
+                                            </a>
+                                        </p>
+
+                                    {% else %}
+                                        <p>{{ product.description|raw }}</p>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <p> </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+
+
+
+                    {# <div class="col-sm-4 col-lg-4 col-md-4">
+                        <h4><a href="#">Like this template?</a>
+                        </h4>
+                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
+                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+                    </div>#}
+
+
+                    {#</div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="active"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>#}
+                    <div class="navigation text-center">
+                        {{ knp_pagination_render(products) }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+
+
+            <hr>
+
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; nwt.cm 2017 | Powered by Saint-Cyr MAPOUKA</p>
+
+                    </div>
+
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
+
+        <!-- jQuery -->
+        <script src="{{ asset('js/jquery.js') }}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    </body>
+
+{% endblock %}
+
