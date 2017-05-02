@@ -17,6 +17,11 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class DefaultController extends Controller
 {
+    public function index2Action(Request $request)
+    {
+        return $this->redirectToRoute('nwt_homepage');
+    }
+
     public function indexAction(Request $request)
     {
         if($request->isXmlHttpRequest()){
@@ -46,7 +51,6 @@ class DefaultController extends Controller
         if(!$slides){
             throw $this->createNotFoundException('no slide found in the DB.');
         }
-
 
         return $this->render('NwtBundle:Default:index.html.twig', array('slides' => $slides,
                                                                              'products' => $products));

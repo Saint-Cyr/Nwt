@@ -1,3 +1,7 @@
+nwt_homepage1:
+    path:  /
+    defaults: { _controller: NwtBundle:Default:index2 }
+
 nwt_homepage:
     path:     /{_locale}
     defaults: { _controller: NwtBundle:Default:index }
