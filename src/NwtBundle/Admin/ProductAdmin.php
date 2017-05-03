@@ -80,6 +80,26 @@ class ProductAdmin extends AbstractAdmin
     {
         $this->manageFileUpload($object);
         //Manage Lucen search engine
+        /*$searchManager = $this->getConfigurationPool()->getContainer()->get('ewz_search.lucene.manager');
+        //Get the product index
+        $productIndex = $searchManager->getIndex('indexProduct');
+        $document = new Document();
+        $document->addField(Document\Field::keyword('key', $object->getId()));
+        $document->addField(Document\Field::text('name', $object->getName()));
+        $document->addField(Document\Field::text('slug', $object->getSlug()));
+        $document->addField(Document\Field::text('image', $object->getImage()));
+        $document->addField(Document\Field::text('description', $object->getDescription()));
+        $document->addField(Document\Field::text('unitPrice', $object->getUnitPrice()));
+        //Add the new created entity as document
+        $productIndex->addDocument($document);
+        $productIndex->updateIndex();*/
+
+    }
+
+    public function postPersist($object)
+    {
+        //$this->manageFileUpload($object);
+        //Manage Lucen search engine
         $searchManager = $this->getConfigurationPool()->getContainer()->get('ewz_search.lucene.manager');
         //Get the product index
         $productIndex = $searchManager->getIndex('indexProduct');

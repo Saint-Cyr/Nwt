@@ -42,6 +42,9 @@ class Program
 
     public function __toString()
     {
+        if(!$this->name){
+            return 'New Program';
+        }
         // TODO: Implement __toString() method.
         return $this->name;
     }

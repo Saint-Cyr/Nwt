@@ -93,6 +93,18 @@ class DefaultController extends Controller
         return $this->render('NwtBundle:Default:product.html.twig', array('product' => $product));
     }
 
+    public function product2Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository('NwtBundle:Product')->find($id);
+
+        if(!$product){
+            throw $this->createNotFoundException('Product of #ID: '.$id.' not found in the DB');
+        }
+
+        return $this->render('NwtBundle:Default:product.html.twig', array('product' => $product));
+    }
+
     public function registrationAction(Request $request)
     {
         $student = new Student();
@@ -125,10 +137,153 @@ class DefaultController extends Controller
             array('object' => $object));
     }
 
+    public function softwareDevelopmentAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'sofware_development'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function shopAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'shop'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function maintenanceAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'maintenance'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function WebsiteDesignAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'website_design'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function secretariatAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'secretariat'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function itNetworkingAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'it_networking'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function remoteMonitoringAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'remote_monitoring'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function electricityEngineeringAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'electricity_engineering'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function serigraphyAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'serigraphy'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function infographyAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'infography'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
     public function servicesAction()
     {
         $em = $this->getDoctrine()->getManager();
         $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'services'));
+
+        if(!$object){
+            throw $this->createNotFoundException('No Object found.');
+        }
+
+        return $this->render('NwtBundle:Default:single.html.twig',
+            array('object' => $object));
+    }
+
+    public function trainingAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $object = $em->getRepository('NwtBundle:Post')->findOneBy(array('type' => 'training'));
 
         if(!$object){
             throw $this->createNotFoundException('No Object found.');

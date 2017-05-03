@@ -61,3 +61,88 @@ nwt_product:
     defaults: { _controller: NwtBundle:Default:product }
     requirements:
             _locale: en|fr
+
+nwt_product2:
+    path:  /{_locale}/{id}
+    defaults: { _controller: NwtBundle:Default:product2 }
+    requirements:
+            _locale: en|fr
+
+nwt_software_development:
+    path:  /{_locale}/service/software-development
+    defaults: { _controller: NwtBundle:Default:softwareDevelopment }
+    requirements:
+                _locale: en|fr
+
+nwt_shop:
+    path:  /{_locale}/service/shop
+    defaults: { _controller: NwtBundle:Default:shop }
+    requirements:
+                _locale: en|fr
+
+nwt_maintenance:
+    path:  /{_locale}/service/maintenance
+    defaults: { _controller: NwtBundle:Default:maintenance }
+    requirements:
+                _locale: en|fr
+
+nwt_secretariat:
+    path:  /{_locale}/service/secretariat
+    defaults: { _controller: NwtBundle:Default:secretariat }
+    requirements:
+                _locale: en|fr
+
+nwt_it_networking:
+    path:  /{_locale}/service/it-networking
+    defaults: { _controller: NwtBundle:Default:itNetworking }
+    requirements:
+                _locale: en|fr
+
+nwt_remote_monitoring:
+    path:  /{_locale}/service/remote-monitoring
+    defaults: { _controller: NwtBundle:Default:remoteMonitoring }
+    requirements:
+                _locale: en|fr
+
+nwt_electricity_engineering:
+    path:  /{_locale}/service/electricity-engineering
+    defaults: { _controller: NwtBundle:Default:electricityEngineering }
+    requirements:
+                _locale: en|fr
+
+nwt_serigraphy:
+    path:  /{_locale}/service/serigraphy
+    defaults: { _controller: NwtBundle:Default:serigraphy }
+    requirements:
+                _locale: en|fr
+
+nwt_infography:
+    path:  /{_locale}/service/infography
+    defaults: { _controller: NwtBundle:Default:infography }
+    requirements:
+                _locale: en|fr
+
+nwt_website_design:
+    path:  /{_locale}/service/website-design
+    defaults: { _controller: NwtBundle:Default:websiteDesign }
+    requirements:
+                _locale: en|fr
+
+
+nwt_training:
+    path:  /{_locale}/service/training
+    defaults: { _controller: NwtBundle:Default:training }
+    requirements:
+                _locale: en|fr
+
+
+
+
+
+
+
+
+
+
+
+

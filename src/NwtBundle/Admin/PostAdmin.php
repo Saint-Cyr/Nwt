@@ -47,6 +47,19 @@ class PostAdmin extends AbstractAdmin
                     'IT Programs' => 'it_programs',
                     'Other Programs' => 'other_programs',
                     'order' => 'order',
+                    'Software Development' => 'sofware_development',
+                    'shop' => 'shop',
+                    'website_design' => 'website_design',
+                    'secretariat' => 'secretariat',
+                    'maintenance' => 'maintenance',
+                    'it_networking' => 'it_networking',
+                    'remote_monitoring' => 'remote_monitoring',
+                    'electricity_engineering' => 'electricity_engineering',
+                    'serigraphy' => 'serigraphy',
+                    'infography' => 'infography',
+                    'training' => 'training',
+
+
                 ),
                 // *this line is important*
                 'choices_as_values' => true,
